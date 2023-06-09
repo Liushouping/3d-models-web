@@ -16,7 +16,7 @@
 			<h1 class="text-[32px] text-white tracking-[1px] font-bold">3D Models</h1>
 			<div class="relative shadow-2xl bg-white w-full h-[500px]">
 				<model-viewer 
-				class="w-[360px] h-full bg-white z-10 rounded-2xl" 
+				class="w-[360px] h-full bg-white z-10" 
 				loading="eager"
 				shadow-intensity="1" 
 				src="obj/obj1/scene.gltf" 
@@ -26,7 +26,9 @@
 				camera-controls ar ios-src="obj/obj1/scene.gltf"></model-viewer>
 
 				<span class="absolute bottom-4 left-4 z-20">
-					<h5 class="text-[64px] font-bold text-gray-900 mix-blend-difference">3D Models</h5>
+					<h5 
+					class="text-[64px] font-bold text-white uppercase mix-blend-difference"
+					style="color: transparent;-webkit-text-stroke: 1px #fff;">3D Models</h5>
 				</span>
 			</div>
 		</div>
