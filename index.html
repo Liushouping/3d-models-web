@@ -5,16 +5,60 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>3D webiste</title>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-	<link rel="stylesheet" type="text/css" href="/css/style.css">
 	<script src="https://cdn.tailwindcss.com"></script>
 	<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-	<style type="text/css">
+	<style>
+		:root {
+	--pr-color: #fff;
+	--second-color: #0a0a0a;
+	--cubicbz: cubic-bezier(.9, 0, .1, 1);
+	--fz-big: 60px;
+}
+/* 3D Image **********************************/
+.card {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	height: 500px;
+}
+
+.card__item {
+	position: relative;
+	width: calc(50% - 40px);
+	height: 100%;
+}
+
 .card__model {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	top: 0;
 	left: 0;
+}
+
+.card__txt {
+	position: absolute;
+	display: block;
+	bottom: 10%;
+	left: 40px;
+	font-size: 40px;
+	text-transform: uppercase;
+	color: var(--pr-color);
+	mix-blend-mode: difference;
+	pointer-events: none;
+	z-index: 3;
+	transition: .8s var(--cubicbz);
+}
+
+.card__item:hover .card__txt {
+	transform: translateY(-15px);
+}
+
+.title span,
+.card__txt span {
+	color: transparent;
+	-webkit-text-stroke: 1px var(--pr-color);
 }
 	</style>
 </head>
@@ -23,22 +67,20 @@
 	class="w-full h-screen bg-gray-900 flex justify-center items-center">
 		<div class="flex flex-col space-y-4">
 			<h1 class="text-[32px] text-white tracking-[1px] font-bold">3D Models</h1>
-			<div class="relative shadow-2xl bg-white w-full h-[500px]">
-				<model-viewer 
-				class="w-[360px] h-full bg-white z-10 card__model" 
-				loading="eager"
-				shadow-intensity="1" 
-				src="obj/obj1/scene.gltf" 
-				alt="3d img1" 
-				autoplay 
-				auto-rotate
-				camera-controls ar ios-src="obj/obj1/scene.gltf"></model-viewer>
-
-				<span class="absolute bottom-4 left-4 z-20">
-					<h5 
-					class="text-[64px] font-bold text-white uppercase mix-blend-difference"
-					style="color: transparent;-webkit-text-stroke: 1px #000;">3D Models</h5>
-				</span>
+			<div class="card">
+				<div class="card__item">
+					<model-viewer class="card__model" 
+					loading="eager" style="background-color: rgb(212,212,212);"
+					shadow-intensity="1" 
+					src="obj/obj1/scene.gltf" 
+					alt="3d img1" 
+					autoplay 
+					auto-rotate
+					camera-controls ar ios-src="obj/obj1/scene.gltf"></model-viewer>
+					<span class="card__txt">
+						rotate <span>me</span>
+					</span>
+				</div>
 			</div>
 		</div>
 	</div>
